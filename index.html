@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List 3.0</title>
+    <link rel="stylesheet" href="../styles/typography.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" href="../styles/spacing.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <script src="https://kit.fontawesome.com/356d864598.js" crossorigin="anonymous"></script>
+    <style>
+        form fieldset {
+            padding: var(--spacingM);
+            border-radius: 8px;
+            border: solid 2px var(--Outline);
+        }
+
+        form .fields {
+            display: flex;
+            justify-content: flex-start;
+            gap: var(--spacingM);
+        }
+
+        form .user_input {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: var(--spacingS);
+        }
+
+        .error {
+            margin-top: var(--spacingM);
+            display: flex;
+            justify-content: flex-start;
+            color: var(--Error);
+        }
+
+        .task_container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacingM);
+            width: 100%;
+            height: fit-content;
+            visibility: hidden;
+            transition: all 0.3s linear;
+        }
+
+        .show_container {
+            visibility: visible;
+        }
+
+        
+
+        .task_list {
+            display: flex;
+            flex-direction: column;
+            padding: 0 var(--spacingM);
+            margin-top: var(--spacingM);
+            gap: var(--spacingS);
+        }
+
+        .list_item {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .hide_list_item {
+            display: none;
+        }
+
+        .clear_tasks {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn_container {
+            display: flex;
+            gap: var(--spacingS);
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <form id="task_form" class="task_form">
+                <fieldset>
+                    <legend class="titleL">To Do List</legend>
+                    <div class="fields">
+                        <div class="user_input">
+                            <div>
+                                <label class="bodyL" for="task">Task:</label>
+                                <input class="bodyL" type="text" name="task" id="task">
+                            </div>
+                            <div>
+                                <button type="submit" class="button_filled labelL" id="add_task">Add Task</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="error" class="error"></p>
+                </fieldset>
+            </form>
+            <div class="filter_container">
+                <button class="filter_btn button_filled" type="button" data-id="list_item all">All</button>
+                <button class="filter_btn button_filled" type="button" data-id="list_item complete">Complete</button>
+                <button class="filter_btn button_filled" type="button" data-id="list_item incomplete">Incomplete</button>
+            </div>
+            <div id="task_container" class="task_container">
+                <div class="task_list" id="task_list">
+                </div>
+                <div class="clear_tasks">
+                    <button class="button_filled labelL" id="clear_tasks">Clear Tasks</button>
+                </div>
+            </div>
+
+        </section>
+        <script src="todo.js"></script>
+    </main>
+</body>
+
+</html>
